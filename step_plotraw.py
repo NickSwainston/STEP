@@ -312,7 +312,7 @@ def frbplot(filen, ststart):
 if __name__ == "__main__":
     print("Init...")
     sys.stdout.flush()
-    tstart = itime.time()
+    tstart = time.time()
 
     parser = argparse.ArgumentParser(description="")
     parser.add_argument('-i', '--ini', type=str, default=None,
