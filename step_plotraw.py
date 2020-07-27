@@ -9,6 +9,7 @@ import step_lib_comm
 import step_lib_plt as splt
 from matplotlib.backends.backend_pdf import PdfPages
 import torch
+import argparse
 ## Debug ##
 fakefrb = False # Gen training dataset
 fakenofrb = False # Gen without FRB
@@ -311,8 +312,23 @@ def frbplot(filen, ststart):
 if __name__ == "__main__":
     print("Init...")
     sys.stdout.flush()
-    tstart = time.time()
-    PlotReady, FILENAME, PLOTFILE = step_lib_comm.readplotini("frbcfg.ini")
+    tstart = itime.time()
+
+    parser = argparse.ArgumentParser(description="")
+    parser.add_argument('-i', '--ini', type=str, default=None,
+                        help="The ini file that can be used to input the filename and plot file instead of using the arguments")
+    parser.add_argument('-f', '--file', type=str,
+                        help="Input fits or fil file"
+    parser.add_argument('-p', '--plot_file', type=str,
+                        help="Input plot file")
+    args=parser.parse_args()
+
+    if args.ini is None:
+        PlotReady = 1
+        FILENAME = args.file
+        PLOTFILE = args.plot_file
+    else:
+        PlotReady, FILENAME, PLOTFILE = step_lib_comm.readplotini("frbcfg.ini")
     if PlotReady == 1:
         if len(PLOTFILE) != 0:
             frbplot(PLOTFILE, tstart)
