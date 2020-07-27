@@ -318,7 +318,7 @@ if __name__ == "__main__":
     parser.add_argument('-i', '--ini', type=str, default=None,
                         help="The ini file that can be used to input the filename and plot file instead of using the arguments")
     parser.add_argument('-f', '--file', type=str,
-                        help="Input fits or fil file"
+                        help="Input fits or fil file")
     parser.add_argument('-p', '--plot_file', type=str,
                         help="Input plot file")
     args=parser.parse_args()
