@@ -7,6 +7,8 @@ import numpy as np
 import readfil
 import step_lib_comm
 import step_lib_plt as splt
+import matplotlib
+matplotlib.use('Agg')
 from matplotlib.backends.backend_pdf import PdfPages
 import torch
 import argparse
