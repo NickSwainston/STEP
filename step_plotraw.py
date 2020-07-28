@@ -292,6 +292,9 @@ def frbplot(filen, ststart):
                 # save frb #
                 for ts in range(336):
                     frboffset = int(maxsm[i]) + int(delay[ts])
+                    print("frboffset-2 {}".format(frboffset-2))
+                    print("frbsignal.shape {}".format(frbsignal.shape))
+                    print("plot_rfi.shape {}".format(plot_rfi.shape ))
                     frbsignal[:, ts] = plot_rfi[frboffset-2:frboffset+1, ts]
                 np.save('frb.%s.%d'%(rst_filen, header['ibeam']), frbsignal)
                 
